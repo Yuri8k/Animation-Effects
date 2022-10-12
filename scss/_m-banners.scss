@@ -1,0 +1,115 @@
+.banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    column-gap: 20px;
+    row-gap: 20px;
+    padding: 30px 0;
+    z-index: 9;
+    @media screen and (min-width: 992px) {
+        flex-direction: row;
+    }
+
+    .midle-banner {
+        padding: 40px;
+        border-radius: 5px;
+        background: rgba(255, 255, 255, 0.1);
+        box-shadow: rgba(255, 255, 255, 0.1) !important;
+        backdrop-filter: blur(15px) !important;
+        max-width: 750px;
+        height: 370px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        grid-column: 1;
+        overflow: hidden;
+        &:nth-child(2){
+            &:hover {
+                figure {
+                    .circle {
+                        &:nth-child(1){
+                            background: #ef3b36;
+                            transition: 0.5s;
+                        }
+                    }
+                }
+            }
+        }
+
+        &::before {
+            content: "NIKE";
+            position: absolute;
+            top: 0;
+            left: 20px;
+            font-size: 6em;
+            color: #fff;
+            font-weight: 900;
+            font-style: italic;
+            opacity: 0;
+            transition: 0.5s ease-in-out;
+        }
+        &::after {
+            content: "SHOES";
+            position: absolute;
+            top: 80px;
+            left: 20px;
+            font-size: 6em;
+            color: #fff;
+            font-weight: 900;
+            font-style: italic;
+            opacity: 0;
+            transition: 0.5s ease-in-out;
+        }
+
+        &:hover {
+            &::before {
+                opacity: 0.1;
+                transition: 0.5s ease-in-out;
+            }
+            &::after {
+                opacity: 0.1;
+                transition: 0.5s ease-in-out;
+            }
+            figure {
+                .circle {
+                    &:nth-child(1){
+                        background: #e8ae36;
+                        transition: 0.5s;
+                    }
+                }
+            }
+        }
+
+        figure {
+            width: 100%;
+            display: block;
+            transition: 0.5s ease-in-out;
+            @media screen and (min-width: 992px) {
+                max-width: 550px;
+                transform: translateY(10px) rotate(-15deg);
+            }
+            .circle {
+                position: absolute;
+                top: 55%;
+                left: 70%;
+                width: 330px;
+                height: 330px;
+                border-radius: 50%;
+                transition: 0.5s;
+                background: rgba(255, 255, 255, 0.05);
+                transform-style: preserve-3d;
+                z-index: -1;
+                transform: translate(-50%, -50%);
+                transition: 0.5s;
+            }
+
+            img {
+                width: 100%;
+                display: block;
+                z-index: 10;
+            }
+        }
+    }
+}

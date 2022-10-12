@@ -1,0 +1,1 @@
+"use strict";var headerHeight,mainHeader=document.querySelector(".main-header"),header=document.querySelector("header");mainHeader&&header&&(headerHeight=header.getBoundingClientRect().height,mainHeader.style.paddingTop=headerHeight+"px"),VanillaTilt.init(document.querySelectorAll(".midle-banner"),{max:25,speed:400});
