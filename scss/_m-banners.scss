@@ -6,7 +6,7 @@
     column-gap: 20px;
     row-gap: 20px;
     padding: 30px 0;
-    z-index: 9;
+    z-index: 999;
     @media screen and (min-width: 992px) {
         flex-direction: row;
     }
@@ -105,11 +105,80 @@
                 transition: 0.5s;
             }
 
-            img {
+            .img-tilt {
                 width: 100%;
                 display: block;
                 z-index: 10;
             }
         }
+    }
+}
+
+.paralax {
+    width: 100%;
+    max-width: 900px;
+    padding: 40px 20px;
+    display: block;
+    z-index: 9;
+    filter: grayscale(1);
+    transition: 0.5s ease-in-out;
+    @media screen and (min-width: 992px) {
+        padding: 40px;
+    }
+
+    &::before {
+        content: "NIKE";
+        position: absolute;
+        top: 0;
+        left: 20px;
+        font-size: 6em;
+        color: #fff;
+        font-weight: 900;
+        font-style: italic;
+        opacity: 0;
+        transition: 0.5s ease-in-out;
+    }
+    &::after {
+        content: "SHOES";
+        position: absolute;
+        top: 80px;
+        left: 20px;
+        font-size: 6em;
+        color: #fff;
+        font-weight: 900;
+        font-style: italic;
+        opacity: 0;
+        transition: 0.5s ease-in-out;
+    }
+
+    &:hover {
+        filter: grayscale(0);
+        transition: 0.5s ease-in-out;
+        &::before {
+            opacity: 0.1;
+            transition: 0.5s ease-in-out;
+        }
+        &::after {
+            opacity: 0.1;
+            transition: 0.5s ease-in-out;
+        }
+    }
+
+    img {
+        height: 140px;
+        object-fit: cover;
+        @media screen and (min-width: 992px) {
+            height: 410px;
+        }
+    }
+
+    h2 {
+        font-size: 30px;
+        font-style: italic;
+        color: #fff;
+    }
+    p {
+        font-size: 16px;
+        color: #fff;
     }
 }
