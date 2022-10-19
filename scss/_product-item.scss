@@ -1,4 +1,4 @@
-section {
+.circle-class {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -6,6 +6,19 @@ section {
     overflow: hidden;
     padding: 50px 20px;
     box-sizing: border-box;
+
+    &.active {
+        &::before {
+           opacity: 0;
+           visibility: hidden;
+           transition: 0.5s ease-in-out;
+        }
+        &::after {
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.5s ease-in-out;
+        }
+    }
 
     &::before {
         content: "";
@@ -15,8 +28,14 @@ section {
         width: 100%;
         height: 100%;
         background: #ef3b36;
-        clip-path: circle(50% at 100% -20%);
+        clip-path: circle(45% at 100% -20%);
         z-index: 99;
+        transition: 0.5s ease-in-out;
+        box-shadow: inset 0 0 10px #790000,
+        inset 0 0 20px #790000,
+        inset 0 0 40px #790000,
+        inset 0 0 80px #790000,
+        inset 0 0 120px #790000;
     }
     &::after {
         content: "";
@@ -27,6 +46,12 @@ section {
         height: 100%;
         background: #47aafa;
         clip-path: circle(35% at 0% 100%);
+        transition: 0.5s ease-in-out;
+        box-shadow: inset 0 0 10px #00405c,
+        inset 0 0 20px #00405c,
+        inset 0 0 40px #00405c,
+        inset 0 0 80px #00405c,
+        inset 0 0 120px #00405c;
     }
 
     .title {
@@ -38,6 +63,11 @@ section {
         z-index: 9;
         text-transform: uppercase;
         font-style: italic;
+        text-shadow: 0 0 10px #00b3ff,
+        0 0 20px #00b3ff,
+        0 0 40px #00b3ff,
+        0 0 80px #00b3ff,
+        0 0 120px #00b3ff;
     }
 
     .content {

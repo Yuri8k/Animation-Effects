@@ -1,63 +1,122 @@
-header {
-    width: 100%;
-    height: 100px;
-    background: rgba(255, 255, 255, 0.05);
-    box-shadow: rgba($color: #000000, $alpha: 0.05);
-    backdrop-filter: blur(15px);
-    z-index: 9999;
-    position: fixed;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600;700&display=swap');
 
-    .header-content {
+.header {
+    position: relative;
+    width: 100%;
+    padding: 100px 10px;
+    
+    &__box {
+        position: relative;
+        width: 100%;
+        max-width: 600px;
+        height: 300px;
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        padding: 0 20px 0 0;
-        @media screen and (min-width: 992px) {
-            padding: 0 10px;
-        }
-        .logo {
-            width: 150px;
-        }
+        justify-content: center;
+        margin: 0 auto;
+        padding: 0 10px;
 
-        .card-profile {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            column-gap: 10px;
-
-            .propfile {
-                background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE5LjcyNzQgMjAuNDQ3MUMxOS4yNzE2IDE5LjE3MTMgMTguMjY3MiAxOC4wNDM5IDE2Ljg3MDEgMTcuMjM5OUMxNS40NzI5IDE2LjQzNTggMTMuNzYxMSAxNiAxMiAxNkMxMC4yMzg5IDE2IDguNTI3MDYgMTYuNDM1OCA3LjEyOTkxIDE3LjIzOTlDNS43MzI3NiAxOC4wNDM5IDQuNzI4MzkgMTkuMTcxMyA0LjI3MjU5IDIwLjQ0NzEiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMS4yIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPGNpcmNsZSBjeD0iMTIiIGN5PSI4IiByPSI0IiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjEuMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+Cjwvc3ZnPgo=) no-repeat center;
-                background-size: 100%;
-                width: 24px;
-                height: 24px;
-                display: block;
+        .lightbar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 10px;
+            height: 100%;
+            border-radius: 10px;
+            background: #fff;
+            z-index: 2;
+            box-shadow: 0 0 10px #00b3ff,
+            0 0 20px #00b3ff,
+            0 0 40px #00b3ff,
+            0 0 80px #00b3ff,
+            0 0 120px #00b3ff;
+            animation: animatelightbarMobile 5s linear infinite;
+            @media screen and (min-width: 650px) {
+                animation: animatelightbar 5s linear infinite;
             }
-            .card {
-                background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTggMTJMOCA4QzggNS43OTA4NiA5Ljc5MDg2IDQgMTIgNFY0QzE0LjIwOTEgNCAxNiA1Ljc5MDg2IDE2IDhMMTYgMTIiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8cGF0aCBkPSJNMy42OTQzNSAxMi42Njc4QzMuODM5NDIgMTAuOTI2OSAzLjkxMTk2IDEwLjA1NjUgNC40ODYwNSA5LjUyODI0QzUuMDYwMTMgOSA1LjkzMzYgOSA3LjY4MDUzIDlIMTYuMzE5NUMxOC4wNjY0IDkgMTguOTM5OSA5IDE5LjUxNCA5LjUyODI0QzIwLjA4OCAxMC4wNTY1IDIwLjE2MDYgMTAuOTI2OSAyMC4zMDU3IDEyLjY2NzhMMjAuODE5NSAxOC44MzM5QzIwLjkwNCAxOS44NDc0IDIwLjk0NjIgMjAuMzU0MiAyMC42NDkxIDIwLjY3NzFDMjAuMzUyIDIxIDE5Ljg0MzUgMjEgMTguODI2NCAyMUg1LjE3MzZDNC4xNTY1NSAyMSAzLjY0ODAyIDIxIDMuMzUwOTIgMjAuNjc3MUMzLjA1MzgyIDIwLjM1NDIgMy4wOTYwNSAxOS44NDc0IDMuMTgwNTEgMTguODMzOUwzLjY5NDM1IDEyLjY2NzhaIiBzdHJva2U9IndoaXRlIi8+Cjwvc3ZnPgo=) no-repeat center;
-                background-size: 100%;
-                width: 24px;
-                height: 24px;
-                display: block;
-                position: relative;
 
-                .card__qtd {
-                    position: absolute;
-                    top: 0;
-                    right: -20px;
-                    width: 20px;
-                    height: 20px;
-                    background: #9bdc28;
-                    color: #fff;
-                    font-weight: 500;
-                    border-radius: 5px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    padding: 0;
-                }
+        }
+
+        @keyframes animatelightbarMobile {
+            0%,5% {
+                transform: scale(0) translateX(0);
+            }
+            10% {
+                transform: scale(1) translateX(0);
+            }
+            90% {
+                transform: scale(1) translateX(calc(300px - 10px));
+            }
+            95%, 100% {
+                transform: scale(0) translateX(calc(300px - 10px));
+            }
+        }
+
+        @keyframes animatelightbar {
+            0%,5% {
+                transform: scale(0) translateX(0);
+            }
+            10% {
+                transform: scale(1) translateX(0);
+            }
+            90% {
+                transform: scale(1) translateX(calc(600px - 10px));
+            }
+            95%, 100% {
+                transform: scale(0) translateX(calc(600px - 10px));
+            }
+        }
+
+        .toplayer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #232323;
+            animation: animateTopLayer 10s linear infinite;
+        }
+
+        @keyframes animateTopLayer {
+            0%,2.5% {
+                transform: translateX(0);
+            }
+            5% {
+                transform: translateX(0);
+            }
+            45% {
+                transform: translateX(100%);
+            }
+            47.5%, 50% {
+                transform: translateX(100%);
+            }
+            50.001%,52.5% {
+                transform: translateX(-100%);
+            }
+            55% {
+                transform: translateX(-100%);
+            }
+            95% {
+                transform: translateX(0%);
+            }
+            97.5%, 100% {
+                transform: translateX(0%);
+            }
+        }
+
+        h2 {
+            color: #fff;
+            font-family: 'Nunito', sans-serif;
+            font-size: 3em;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-shadow: 0 0 10px #00b3ff,
+            0 0 20px #00b3ff,
+            0 0 40px #00b3ff,
+            0 0 80px #00b3ff,
+            0 0 120px #00b3ff;
+            @media screen and (min-width: 992px) {
+                font-size: 5em;
             }
         }
     }

@@ -22,23 +22,15 @@
 
 <body>
 
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <img class="logo" src="images/nike-logo.png" alt="logo">
-                <div class="card-profile">
-                    <i class="propfile"></i>
-                    <i class="card">
-                        <span class="card__qtd">0</span>
-                    </i>
-                </div>
-            </div>
+    <section class="header">
+        <div class="header__box">
+            <div class="lightbar"></div>
+            <div class="toplayer"></div>
+            <h2>Welcome</h2>
         </div>
-    </header>
+    </section>
 
-    <main class="main-header"></main>
-
-    <section>
+    <section class="circle-class">
         <h1 class="title">Effect of products</h1>
         <div class="content">
             <div class="content__card">
@@ -201,7 +193,7 @@
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure aliquam repudiandae nesciunt explicabo quis iusto, laborum unde perferendis cumque at, eos, quia est distinctio nostrum recusandae dignissimos sequi ut id!</p>
         </div>
 
-            <h1 class="title">Avaliações</h1>
+            <h1 class="title">Carrousel Avaliations</h1>
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
@@ -339,6 +331,30 @@
             </div>
 
     </section>
+
+    <section class="eyes-content">
+    <h1 class="title">Deus ta vendo seu código todo errado</h1>
+        <div class="box">
+            <div class="eye"></div>
+            <div class="eye"></div>
+        </div>
+    </section>
+
+    <script>
+        function eyeball() {
+        const eye = document.querySelectorAll('.eye');
+        eye.forEach(function(eye) {
+            let x = (eye.getBoundingClientRect().left) + (eye.clientWidth / 2);
+            let y = (eye.getBoundingClientRect().top) + (eye.clientHeight / 2);
+
+            let radian = Math.atan2(event.clientX - x, event.clientY - y);
+            let rotation = (radian * (180 / Math.PI) * -1) + 270;
+            eye.style.transform = "rotate("+rotation+"deg)"
+        })
+        }
+
+        document.querySelector('body').addEventListener('mousemove', eyeball);
+    </script>
 
     <script src="js/vanilla-tilt.min.js"></script>
     <script src="js/swiper-bundle.min.js"></script>
