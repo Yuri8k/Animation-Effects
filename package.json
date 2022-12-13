@@ -4,6 +4,7 @@
   "description": "",
   "main": "gulpfile.js",
   "dependencies": {
+    "assert-plus": "^1.0.0",
     "browser-sync": "^2.27.10",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
@@ -11,8 +12,8 @@
     "gulp-sass": "^5.1.0",
     "gulp-uglify": "^3.0.2",
     "jquery": "^3.6.0",
-    "node-sass": "^7.0.1",
-    "sass": "^1.53.0"
+    "sass": "^1.56.2",
+    "sass-loader": "^13.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.18.6",
