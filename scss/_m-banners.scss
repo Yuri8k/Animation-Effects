@@ -204,7 +204,6 @@
         width: 300px;
         height: 300px;
         transform-style: preserve-3d;
-        animation: animate 4s linear infinite;
         z-index: 99;
         margin: 100px 0 200px;
     
@@ -215,6 +214,9 @@
             100% {
                 transform: rotateX(-30deg) rotateY(360deg);
             }
+        }
+        &.active {
+             animation: animate 4s linear infinite;
         }
     
         &__top {

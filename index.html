@@ -794,10 +794,55 @@
                 <span></span>
                 <span></span>
             </div>
+            <div class="switch">
+                <div class="btn"></div>
+            </div>
         </div>
+        <audio id="audio" src="./sound/click.mp3" autostart="false"></audio>
+    </section>
+
+    <section class="text-animation">
+        <div class="text">
+            <h2>Thanks</h2>
+        </div>
+        <svg>
+            <filter id="fire">
+                <feTurbulence id="turbulence" baseFrequency="0.1 0.1" numOctaves="2" seed="3">
+                    <animate attributeName="baseFrequency" dur="5s" values="0.1 0.1;0.12 0.2" repeatCount="indefinite"></animate>
+                </feTurbulence>
+                <feDisplacementMap in="SourceGraphic" scale="10"></feDisplacementMap>
+            </filter>
+        </svg>
     </section>
 
     <script>
+
+        function animaScroll() {
+            const cubeLight = document.querySelectorAll('.cube');
+            if(cubeLight) {
+                const windowHalf = window.innerHeight * 0.6;
+                const contentCube = document.querySelector('.content_cube');
+                cubeTop = contentCube.getBoundingClientRect().top;
+                const connectCube = (cubeTop - windowHalf) < 0;
+                cubeLight.forEach((item) => {
+                    if(connectCube) {
+                        item.classList.add('active');
+                    } else {
+                        item.classList.remove('active');
+                    }
+                    if(connectCube > cubeTop + 300) {
+                        item.classList.remove('active');
+                    }
+                    var light = item.querySelector('.cube__top');
+                    light.addEventListener('click', () => {
+                        light.classList.toggle('active');
+                    });
+                });
+            }
+        }
+
+        window.addEventListener('scroll', animaScroll);
+
         function eyeball() {
             const eye = document.querySelectorAll('.eye');
             eye.forEach(function(eye) {
@@ -807,23 +852,34 @@
                 let radian = Math.atan2(event.clientX - x, event.clientY - y);
                 let rotation = (radian * (180 / Math.PI) * -1) + 270;
                 eye.style.transform = "rotate("+rotation+"deg)"
-            })
+            });
         }
-
         document.querySelector('body').addEventListener('mousemove', eyeball);
 
         const magicCube = document.querySelectorAll('.magic-cube__container__cube');
         magicCube.forEach((item) => {
             const classCube = item.querySelectorAll('.cube');
             classCube.forEach((i) => {
-            const individualCube = i.querySelectorAll('span');
-                individualCube.forEach((cubo) => {
-                cubo.addEventListener('click', () => {
-                    cubo.classList.toggle('active');
-                })
-            })
-            })
-        })
+                const individualCube = i.querySelectorAll('span');
+                    individualCube.forEach((cubo) => {
+                    cubo.addEventListener('click', () => {
+                        cubo.classList.toggle('active');
+                    });
+                });
+            });
+        });
+
+        function turnTheLightOn() {
+            let btn = document.querySelector('.btn');
+            let light = document.querySelector('.light-bulb');
+            let audio = document.querySelector('#audio');
+            btn.onclick = function() {
+                light.classList.toggle('on');
+                audio.play();
+            }
+        }
+        turnTheLightOn();
+
     </script>
 
     <script src="js/vanilla-tilt.min.js"></script>

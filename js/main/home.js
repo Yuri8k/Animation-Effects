@@ -18,14 +18,4 @@ var swiper = new Swiper(".mySwiper", {
     loop: true
 });
 
-const cubeLight = document.querySelectorAll('.cube');
-if(cubeLight) {
-  cubeLight.forEach((item) => {
-    var light = item.querySelector('.cube__top');
-    light.addEventListener('click', () => {
-      light.classList.toggle('active');
-    })
-  })
-}
-
 
